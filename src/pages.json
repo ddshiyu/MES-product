@@ -1,0 +1,47 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/stats/index",
+			"style": {
+				"navigationBarTitleText": "统计看板",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/login/index",
+			"style": {
+				"navigationBarTitleText": "登录",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/orders/index",
+			"style": {
+				"navigationBarTitleText": "生产指令",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/inspection/index",
+			"style": {
+				"navigationBarTitleText": "过程质检",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/access/index",
+			"style": {
+				"navigationBarTitleText": "权限管理",
+				"navigationStyle": "custom"
+			}
+		}
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "MES 生产执行",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8",
+		"usingComponents": {
+		}
+	}
+}
