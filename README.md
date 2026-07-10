@@ -483,6 +483,15 @@ npm run lint
 
 当前项目中 `src/utils/request.ts` 可能存在历史 warning，不影响主业务页面构建。
 
+## 页面截图
+
+![指令页](src/static/step1.png)
+![质检页](src/static/step2.png)
+![统计页](src/static/step3.png)
+![权限页](src/static/step4.png)
+
+
+
 ## 响应式适配
 
 项目面向平板和小程序端，当前样式覆盖：
