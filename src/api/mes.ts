@@ -246,6 +246,7 @@ function buildUrl(url: string, method: HttpMethod, data?: Record<string, unknown
 function request<T>(options: RequestOptions): Promise<T> {
   const method = options.method || 'GET'
   const token = getMesToken()
+  const requestUrl = buildUrl(options.url, method, options.data)
 
   return new Promise((resolve, reject) => {
     uni.request({
@@ -254,7 +255,7 @@ function request<T>(options: RequestOptions): Promise<T> {
         ...(options.needAuth === false || !token ? {} : { Authorization: `Bearer ${token}` }),
       },
       method,
-      url: buildUrl(options.url, method, options.data),
+      url: requestUrl,
       success: (response) => {
         const body = response.data as ApiResponse<T>
         if (response.statusCode === 401) {
@@ -272,7 +273,12 @@ function request<T>(options: RequestOptions): Promise<T> {
         resolve(body.data)
       },
       fail: (error) => {
-        reject(error)
+        console.warn('MES request failed', {
+          error,
+          url: requestUrl,
+        })
+        const message = '接口请求失败，请检查小程序 request 合法域名或网络'
+        reject(new Error(`${message}：${requestUrl}`))
       },
     })
   })
